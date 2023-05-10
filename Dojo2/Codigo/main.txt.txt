@@ -1,0 +1,144 @@
+// C++ code
+
+#define PULSADOR 3
+#define CONSTITUCION 13
+#define SAN_JUAN 12
+#define INDEPENDENCIA 11
+#define MORENO 10
+#define A 8
+#define B 9
+#define C A1
+#define D A2
+#define E A3
+#define F 7
+#define G 6
+#define sonido A0
+
+void setup()
+{
+  pinMode(PULSADOR, INPUT_PULLUP);
+  pinMode(CONSTITUCION, OUTPUT);
+  pinMode(SAN_JUAN, OUTPUT);
+  pinMode(INDEPENDENCIA, OUTPUT);
+  pinMode(MORENO, OUTPUT);
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(sonido, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println(digitalRead(PULSADOR));
+  if (digitalRead(PULSADOR)==LOW)
+  {
+    encender_todo();
+    mostrar_4();
+    delay(2000);
+    apagar(MORENO);
+    sonar(sonido);
+    mostrar_3();
+    delay(2000);
+    apagar(INDEPENDENCIA);
+    sonar(sonido);
+    mostrar_2();
+    delay(2000);
+    apagar(SAN_JUAN);
+    sonar(sonido);
+    mostrar_1();
+    delay(2000);
+    apagar(CONSTITUCION);
+    sonar(sonido);
+    mostrar_0();
+    delay(2000);
+    apagar_scren();
+  }
+
+}
+void encender(int led)
+{
+  digitalWrite(led,HIGH);
+}
+void encender_todo()
+{
+  	encender(MORENO);
+    encender(INDEPENDENCIA);
+    encender(SAN_JUAN);
+    encender(CONSTITUCION);
+}
+void apagar(int led)
+{
+  digitalWrite(led,LOW);
+}
+void mostrar_4()
+{
+    digitalWrite(A,LOW);
+    digitalWrite(B,HIGH);
+    digitalWrite(C,HIGH);
+    digitalWrite(D,LOW);
+    digitalWrite(E,LOW);
+    digitalWrite(F,HIGH);
+    digitalWrite(G,HIGH);
+
+}
+void mostrar_3()
+{
+    digitalWrite(A,HIGH);
+    digitalWrite(B,HIGH);
+    digitalWrite(C,HIGH);
+    digitalWrite(D,HIGH);
+    digitalWrite(E,LOW);
+    digitalWrite(F,LOW);
+    digitalWrite(G,HIGH);
+}
+void mostrar_2()
+{
+    digitalWrite(A,HIGH);
+    digitalWrite(B,HIGH);
+    digitalWrite(C,LOW);
+    digitalWrite(D,HIGH);
+    digitalWrite(E,HIGH);
+    digitalWrite(F,LOW);
+    digitalWrite(G,HIGH);
+}
+void mostrar_1()
+{
+    digitalWrite(A,LOW);
+    digitalWrite(B,HIGH);
+    digitalWrite(C,HIGH);
+    digitalWrite(D,LOW);
+    digitalWrite(E,LOW);
+    digitalWrite(F,LOW);
+    digitalWrite(G,LOW);
+}
+void mostrar_0()
+{
+    digitalWrite(A,HIGH);
+    digitalWrite(B,HIGH);
+    digitalWrite(C,HIGH);
+    digitalWrite(D,HIGH);
+    digitalWrite(E,HIGH);
+    digitalWrite(F,HIGH);
+    digitalWrite(G,LOW);
+}
+void apagar_scren()
+{
+  apagar(A);
+  apagar(B);
+  apagar(C);
+  apagar(D);
+  apagar(E);
+  apagar(F);
+  apagar(G);
+}
+void sonar(int pin)
+{
+   	tone(pin,800);
+    delay(200);
+  	noTone(pin);
+}
