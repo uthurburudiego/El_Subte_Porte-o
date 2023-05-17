@@ -1,5 +1,5 @@
 # SPD_Dojo2
-![Tinkercad](Dojo1/Img/Super_Trug.jpg)
+![Tinkercad](Dojo2/Img/portada_subte.jpg)
 
 
 ## Integrantes 
