@@ -1,13 +1,8 @@
-# SPD_Dojo2
+# El subte Porteño 
 ![Tinkercad](Dojo2/Img/portada_subte.jpg)
 
 
-## Integrantes 
-- Belén Funtanillas
-- Agustin Di Leone
-- Lucas Da Silva Pinheiro
-- Matias Cuervo
-- Adolfo Pumacayo
+## Diseñador
 - Diego Uthurburu
 
 
